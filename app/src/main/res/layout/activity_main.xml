@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <ImageView
         android:id="@+id/IVtelefone"
         android:layout_width="0dp"
-        android:layout_height="83dp"
+        android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,6 +38,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVNome" />
 
+    <Button
+        android:id="@+id/BTNsair"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:text="Sair"
+        app:layout_constraintBottom_toBottomOf="@+id/BTNadicionar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ETnome" />
+
+    <EditText
+        android:id="@+id/ETtelefone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Informe o telefone."
+        android:inputType="phone"
+        app:layout_constraintEnd_toStartOf="@+id/BTNadicionar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVtelefone" />
+
     <TextView
         android:id="@+id/TVtelefone"
         android:layout_width="0dp"
@@ -46,29 +67,29 @@
         android:text="Telefone:"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/editText2"
+        app:layout_constraintEnd_toStartOf="@+id/BTNadicionar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETnome" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Informe o telefone."
-        android:inputType="phone"
-        app:layout_constraintEnd_toStartOf="@+id/BTNsalvar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVtelefone" />
 
     <Button
-        android:id="@+id/BTNsalvar"
+        android:id="@+id/BTNadicionar"
         android:layout_width="wrap_content"
+        android:layout_height="66dp"
+        android:text="Adicionar"
+        app:layout_constraintBottom_toBottomOf="@+id/ETtelefone"
+        app:layout_constraintEnd_toStartOf="@+id/BTNsair"
+        app:layout_constraintTop_toTopOf="@+id/TVtelefone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RVlistaagenda"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        android:text="Salvar"
-        app:layout_constraintBottom_toBottomOf="@+id/editText2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETnome" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ETtelefone"
+        tools:ignore="MissingConstraints">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
