@@ -35,6 +35,7 @@ public class AdapterListaAgenda extends RecyclerView.Adapter<AdapterListaAgenda.
         return new GuardadorItemLista(itemlista);
     }
 
+    
     @Override
     public void onBindViewHolder(@NonNull GuardadorItemLista holder, int position) {
         holder.icon.setImageResource(R.drawable.fone);
