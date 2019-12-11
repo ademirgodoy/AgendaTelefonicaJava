@@ -1,16 +1,21 @@
 package br.edu.ifsp.agendatelefonica.adapter;
 
+import android.graphics.drawable.Icon;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import br.edu.ifsp.agendatelefonica.R;
 import br.edu.ifsp.agendatelefonica.model.Agenda;
+
 
 public class AdapterListaAgenda extends RecyclerView.Adapter<AdapterListaAgenda.GuardadorItemLista> {
 
@@ -25,15 +30,15 @@ public class AdapterListaAgenda extends RecyclerView.Adapter<AdapterListaAgenda.
     public GuardadorItemLista onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater li = LayoutInflater.from(parent.getContext());
-        View itemlista = li.inflate(android.R.layout.simple_list_item_2,parent,false);
 
+        View itemlista = li.inflate(android.R.layout.activity_list_item,parent,false);
         return new GuardadorItemLista(itemlista);
     }
 
     @Override
     public void onBindViewHolder(@NonNull GuardadorItemLista holder, int position) {
-        holder.text1.setText( dadosAgenda.get(position).getNome());
-        holder.text2.setText( dadosAgenda.get(position).getTelefone());
+        holder.icon.setImageResource(R.drawable.fone);
+        holder.text1.setText( dadosAgenda.get(position).getNome()+" - "+dadosAgenda.get(position).getTelefone());
     }
 
     @Override
@@ -42,13 +47,14 @@ public class AdapterListaAgenda extends RecyclerView.Adapter<AdapterListaAgenda.
     }
 
     public class GuardadorItemLista extends RecyclerView.ViewHolder {
+         private ImageView icon;
          private TextView text1;
-         private TextView text2;
+
          public GuardadorItemLista(@NonNull View itemView) {
              super(itemView);
 
+             icon = itemView.findViewById(android.R.id.icon);
              text1 = itemView.findViewById(android.R.id.text1);
-             text2 = itemView.findViewById(android.R.id.text2);
 
          }
      }
